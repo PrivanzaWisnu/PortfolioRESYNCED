@@ -1,0 +1,49 @@
+import { create } from 'zustand'
+import { persist } from 'zustand/middleware'
+
+// 1. Definisikan tipe-tipe datanya
+export type FontSize = 'small' | 'default' | 'large' | 'extra-large'
+export type ThemeColorKey = 'primary' | 'secondary' | 'accent' | 'destructive'
+export type Language = 'id' | 'en'
+
+// 2. Buat kerangka brankasnya (Interface)
+export interface SettingsStore {
+  fontId: string
+  fontSize: FontSize
+  reduceMotion: boolean
+  customColors: Partial<Record<ThemeColorKey, string>>
+  language: Language
+  isSettingsOpen: boolean
+  
+  // Fungsi untuk mengubah data
+  setFontId: (id: string) => void
+  setFontSize: (size: FontSize) => void
+  setReduceMotion: (reduce: boolean) => void
+  setCustomColors: (colors: Partial<Record<ThemeColorKey, string>>) => void
+  setLanguage: (lang: Language) => void
+  setSettingsOpen: (isOpen: boolean) => void
+}
+
+// 3. Buat dan export brankasnya
+export const useSettingsStore = create<SettingsStore>()(
+  persist(
+    (set) => ({
+      // Initial state with default values
+      fontId: 'poppins', 
+      fontSize: 'default',
+      reduceMotion: false,
+      customColors: {},
+      language: 'en', // English by Default
+      isSettingsOpen: false,
+      
+      // Aksi untuk mengubah state
+      setFontId: (fontId) => set({ fontId }),
+      setFontSize: (fontSize) => set({ fontSize }),
+      setReduceMotion: (reduceMotion) => set({ reduceMotion }),
+      setCustomColors: (customColors) => set({ customColors }),
+      setLanguage: (language) => set({ language }),
+      setSettingsOpen: (isSettingsOpen) => set({ isSettingsOpen }),
+    }),
+    { name: 'portfolio-settings' } // Nama tempat nyimpen di Local Storage browser
+  )
+)
