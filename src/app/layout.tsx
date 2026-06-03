@@ -4,7 +4,7 @@ import { ThemeProvider } from "@/providers/theme-provider";
 import { SettingsProvider } from "@/providers/settings-provider";
 
 export const metadata: Metadata = {
-  title: "My Portfolio", // Nanti bisa diganti nama kamu
+  title: "Privanza's Portfolio RESYNCED",
   description: "Welcome to my portfolio",
 };
 
@@ -23,7 +23,6 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange>
           <SettingsProvider>
-            {/* children di sini nanti akan diisi oleh layout yang ke-2 */}
             {children}
           </SettingsProvider>
         </ThemeProvider>
