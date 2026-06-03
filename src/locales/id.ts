@@ -1,5 +1,3 @@
-import { TranslationType } from "./en";
-
 export const id = {
   hero: {
     greeting: "Hai, saya Privanza Wisnu Aqilanndra",
