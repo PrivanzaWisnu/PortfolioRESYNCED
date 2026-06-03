@@ -5,8 +5,8 @@ interface SkillCardProps {
   name: string;
   image: string | StaticImageData;
   lou: number;
-  priority?: boolean; // 🎯 Ditambahkan untuk optimasi performa LCP di baris pertama
-  labels: {          // 🎯 Dikirim dari page.tsx agar teks level ikut berubah bahasa
+  priority?: boolean;
+  labels: {
     beginner: string;
     basic: string;
     intermediate: string;
@@ -16,7 +16,6 @@ interface SkillCardProps {
 }
 
 export function SkillCard({ name, image, lou, priority = false, labels }: SkillCardProps) {
-  // Fungsi penentu label sekarang mengambil teks terjemahan yang dinamis
   const getLouLabel = (level: number) => {
     switch (level) {
       case 1: return labels.beginner;
@@ -33,7 +32,7 @@ export function SkillCard({ name, image, lou, priority = false, labels }: SkillC
       tabIndex={0} 
       className="group relative w-full aspect-square rounded-2xl border border-border bg-card overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-lg hover:shadow-primary/10 focus:outline-none focus:ring-2 focus:ring-primary/50 cursor-default"
     >
-      {/* 1. STATE NORMAL (Gambar Logo) */}
+      {/* 1. STATE NORMAL */}
       <div className="absolute inset-0 flex items-center justify-center p-5 sm:p-6 transition-all duration-300 opacity-100 group-hover:opacity-0 group-hover:scale-50">
         <div className="relative w-full h-full">
           <Image
@@ -41,8 +40,8 @@ export function SkillCard({ name, image, lou, priority = false, labels }: SkillC
             alt={`Logo ${name}`}
             fill
             sizes="(max-width: 640px) 33vw, (max-width: 1024px) 25vw, 16vw"
-            loading={priority ? undefined : "lazy"} // 🎯 Jika prioritas, matikan lazy load agar gambar langsung muncul
-            priority={priority}                     // 🎯 Mencegah warning LCP Next.js untuk baris pertama
+            loading={priority ? undefined : "lazy"}
+            priority={priority}
             className="object-contain drop-shadow-sm"
           />
         </div>

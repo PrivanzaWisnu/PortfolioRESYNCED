@@ -13,6 +13,7 @@ import { SocialButton } from "@/components/ui/social-button"
 
 import { ABOUT } from "@/data/about"
 
+
 export default function HomePage() {
   const { language } = useSettingsStore()
   const t = language === 'en' ? en : id;
@@ -80,7 +81,7 @@ export default function HomePage() {
           <div className="relative w-64 h-64 md:w-80 md:h-80 xl:w-96 xl:h-96 rounded-full border-4 border-muted/50 shadow-2xl overflow-hidden bg-muted">
             {/* Siapkan fotomu di folder public dengan nama foto-privanza.jpg */}
             <Image 
-              src="/portoIcon.jpg" 
+              src={ABOUT.image}
               alt="Privanza Wisnu" 
               fill 
               sizes="(max-width: 768px) 256px, (max-width: 1280px) 320px, 384px"
