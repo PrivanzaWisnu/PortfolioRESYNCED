@@ -1,7 +1,6 @@
 import { TranslationType } from "./en";
 
-// Dengan memanggil ': TranslationType', TS akan protes kalau kamu salah ketik kunci
-export const id: TranslationType = {
+export const id = {
   hero: {
     greeting: "Hai, saya Privanza Wisnu Aqilanndra",
     description: "Ini adalah halaman utama portofolio kamu yang siap di-kustomisasi.",
