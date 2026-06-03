@@ -53,7 +53,7 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
           const link = document.createElement('link')
           link.id = FONT_LOADER_ID
           link.rel = 'stylesheet'
-          link.href = font.load.href
+          link.href = font.load?.href || ""
           document.head.appendChild(link)
           break
         }
@@ -67,7 +67,7 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
         case 'font-face': {
           const style = document.createElement('style')
           style.id = FONT_LOADER_ID
-          style.textContent = font.load.css
+          style.textContent = font.load.css || ""
           document.head.appendChild(style)
           break
         }
