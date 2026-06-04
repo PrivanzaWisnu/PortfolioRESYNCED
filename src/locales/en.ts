@@ -1,4 +1,7 @@
 export const en = {
+  sidebar: {
+    title: "PRIVANZA'S PORTFOLIO",
+  },
   hero: {
     greeting: "Hi, I'm Privanza Wisnu Aqilanndra",
     description: "This is my main portfolio page, ready to be customized.",
@@ -7,7 +10,6 @@ export const en = {
     contactMe: "Contact Me",
   },
   skills: {
-    description: "This is my Tech Stack & Skills page, ready to be customized.",
     progLang: "Programming Languages",
     frLib: "Frameworks & Libraries",
     tlSft: "Tools & Software",
@@ -21,10 +23,17 @@ export const en = {
     }
   },
   projects: {
-    description: "This is my Projects page, ready to be customized.",
+    description: "Here's my latest projects that I've worked on",
+    projectStatus: {
+      completed: "Completed",
+      inProgress: "In Progress",
+    }
   },
   certifications: {
-    description: "This is my Certifications page, ready to be customized.",
+    credView: "Credential View",
+    description: "Here's my latest certifications that I've earned",
+    download: "Download",
+    view: "View",
   },
   contact: {
     title: "Get In Touch",
@@ -46,7 +55,7 @@ export const en = {
   menu: {
     overview: "Overview",
     skills: "Tech Stack & Skills",
-    projects: "My Projects",
+    projects: "Projects",
     certifications: "Certifications",
     contact: "Contact Me",
   },
@@ -62,7 +71,7 @@ export const en = {
       small: "Small",
       default: "Default",
       large: "Large",
-      "extra-large": "Extra Large", // Sesuai dengan Store kamu
+      "extra-large": "Extra Large",
     },
     themeColor: "Theme Color",
     pickThemeColor: "Pick your theme color",

@@ -14,7 +14,6 @@ export interface FontConfig {
   }
 }
 
-// Di sini kita daftarkan font-font estetik dari Google Fonts
 export const fonts: Record<string, FontConfig> = {
   poppins: {
     id: 'poppins',

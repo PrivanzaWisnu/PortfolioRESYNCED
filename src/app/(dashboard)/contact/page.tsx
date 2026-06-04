@@ -10,18 +10,15 @@ export default function ContactPage() {
   const { language } = useSettingsStore()
   const t = language === 'en' ? en : id
 
-  // State untuk form handling
   const [formData, setFormData] = useState({ name: "", email: "", message: "" })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
 
-  // Fungsi submit form (Siap dihubungkan ke Formspree / EmailJS)
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
 
     try {
-      // 👇 MASUKKAN LINK FORMSPREE DI SINI
       const response = await fetch("https://formspree.io/f/xqejkykk", {
         method: "POST",
         headers: {
@@ -31,11 +28,9 @@ export default function ContactPage() {
       })
 
       if (response.ok) {
-        // Kalau berhasil terkirim
         setIsSuccess(true)
-        setFormData({ name: "", email: "", message: "" }) // Kosongkan form
+        setFormData({ name: "", email: "", message: "" })
         
-        // 👇 PINDAH KE SINI: Hilangkan notif sukses setelah 5 detik
         setTimeout(() => setIsSuccess(false), 5000)
       } else {
         alert("Yah, pesannya gagal dikirim. Coba lagi nanti ya!")
@@ -43,7 +38,6 @@ export default function ContactPage() {
     } catch (error) {
       alert("Terjadi kesalahan jaringan. Cek koneksi internetmu.")
     } finally {
-      // Matikan animasi loading saja di sini
       setIsSubmitting(false)
     }
   }
@@ -51,7 +45,7 @@ export default function ContactPage() {
   return (
     <div className="max-w-5xl mx-auto space-y-12 pb-8 animate-in fade-in duration-500">
       
-      {/* HEADER HALAMAN */}
+      {/* Header */}
       <div className="space-y-2">
         <h1 className="text-3xl font-bold tracking-tight text-primary">
           {t.contact?.title || "Contact Me"}
@@ -61,13 +55,9 @@ export default function ContactPage() {
         </p>
       </div>
 
-      {/* SUSUNAN GRID RESPONSIF */}
+      {/* Responsive Grid */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-        
-        {/* ================= BARIS KIRI: JALUR 1 & 2 (KARTU KONTAK) ================= */}
         <div className="md:col-span-5 space-y-4">
-          
-          {/* Jalur 1: Email Resmi */}
           <a 
             href="mailto:emailkamu@gmail.com" 
             className="flex items-center gap-4 p-4 rounded-xl border border-border bg-card hover:bg-accent/50 transition-colors group"
@@ -80,8 +70,6 @@ export default function ContactPage() {
               <p className="text-sm font-medium truncate">vanenja@gmail.com</p>
             </div>
           </a>
-
-          {/* Jalur 1: LinkedIn */}
           <a 
             href="https://www.linkedin.com/in/privanza-wisnu/" 
             target="_blank" 
@@ -114,12 +102,10 @@ export default function ContactPage() {
 
         </div>
 
-        {/* ================= BARIS KANAN: JALUR 4 (INTERACTIVE CONTACT FORM) ================= */}
         <form 
           onSubmit={handleSubmit}
           className="md:col-span-7 bg-card border border-border rounded-2xl p-6 space-y-4 shadow-sm"
         >
-          {/* Input Nama */}
           <div className="space-y-2">
             <label className="text-sm font-medium text-foreground">
               {t.contact?.nameLabel || "Nama Lengkap"}
@@ -133,8 +119,6 @@ export default function ContactPage() {
               placeholder="Jhon Doe"
             />
           </div>
-
-          {/* Input Email */}
           <div className="space-y-2">
             <label className="text-sm font-medium text-foreground">
               {t.contact?.emailLabel || "Email Anda"}
@@ -149,7 +133,6 @@ export default function ContactPage() {
             />
           </div>
 
-          {/* Input Pesan */}
           <div className="space-y-2">
             <label className="text-sm font-medium text-foreground">
               {t.contact?.messageLabel || "Pesan"}
@@ -164,7 +147,6 @@ export default function ContactPage() {
             />
           </div>
 
-          {/* Tombol Submit dengan Animasi Loading */}
           <button 
             type="submit"
             disabled={isSubmitting}
@@ -183,7 +165,6 @@ export default function ContactPage() {
             )}
           </button>
 
-          {/* Notifikasi Sukses */}
           {isSuccess && (
             <div className="p-3 text-sm rounded-xl bg-green-500/10 text-green-500 border border-green-500/20 text-center animate-in fade-in duration-300">
               🎉 {t.contact?.successMessage || "Pesan berhasil dikirim! Terima kasih."}

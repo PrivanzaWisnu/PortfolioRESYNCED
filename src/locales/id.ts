@@ -1,4 +1,7 @@
 export const id = {
+  sidebar: {
+    title: "PORTOFOLIO PRIVANZA",
+  },
   hero: {
     greeting: "Hai, saya Privanza Wisnu Aqilanndra",
     description: "Ini adalah halaman utama portofolio kamu yang siap di-kustomisasi.",
@@ -7,7 +10,6 @@ export const id = {
     contactMe: "Hubungi Saya",
   },
   skills: {
-    description: "Ini adalah halaman Kemampuan & Teknologi kamu yang siap di-kustomisasi.",
     progLang: "Bahasa Pemrograman",
     frLib: "Kerangka Kerja & Pustaka",
     tlSft: "Alat & Perangkat Lunak",
@@ -21,10 +23,17 @@ export const id = {
     }
   },
   projects: {
-    description: "Ini adalah halaman Proyek Saya yang siap di-kustomisasi.",
+    description: "Ini adalah proyek-proyek terbaru yang telah saya kerjakan.",
+    projectStatus: {
+      completed: "Selesai",
+      inProgress: "Sedang Berjalan",
+    }
   },
   certifications: {
-    description: "Ini adalah halaman Sertifikasi saya yang siap di-kustomisasi.",
+    credView: "Tampilan Kredensial",
+    description: "Ini adalah sertifikasi-sertifikasi terbaru yang telah saya dapatkan.",
+    view: "Lihat",
+    download: "Unduh",
   },
   contact: {
     title: "Hubungi Saya",

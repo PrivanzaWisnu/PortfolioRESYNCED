@@ -1,5 +1,3 @@
-// File: src/components/ui/social-button.tsx
-
 import Link from "next/link"
 
 interface SocialButtonProps {

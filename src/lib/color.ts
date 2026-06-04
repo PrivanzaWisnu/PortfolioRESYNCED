@@ -1,4 +1,3 @@
-// Mengubah kode HEX (contoh: #FF0000) menjadi format HSL Tailwind
 export function hexToHsl(hex: string): string {
   hex = hex.replace(/^#/, '')
   if (hex.length === 3) {
@@ -26,13 +25,11 @@ export function hexToHsl(hex: string): string {
   return `${Math.round(h * 360)} ${Math.round(s * 100)}% ${Math.round(l * 100)}%`
 }
 
-// Menentukan teks di dalam tombol harus putih atau hitam agar bisa dibaca
 export function autoForeground(hsl: string): string {
   const parts = hsl.split(' ')
   if (parts.length >= 3) {
     const lightnessStr = parts[2].replace('%', '')
     const lightness = parseFloat(lightnessStr)
-    // Kalau warnanya terang, kasih teks gelap. Kalau gelap, kasih teks terang.
     return lightness > 50 ? '0 0% 10%' : '0 0% 98%'
   }
   return '0 0% 10%' 

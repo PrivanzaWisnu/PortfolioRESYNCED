@@ -32,7 +32,6 @@ export function SkillCard({ name, image, lou, priority = false, labels }: SkillC
       tabIndex={0} 
       className="group relative w-full aspect-square rounded-2xl border border-border bg-card overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-lg hover:shadow-primary/10 focus:outline-none focus:ring-2 focus:ring-primary/50 cursor-default"
     >
-      {/* 1. STATE NORMAL */}
       <div className="absolute inset-0 flex items-center justify-center p-5 sm:p-6 transition-all duration-300 opacity-100 group-hover:opacity-0 group-hover:scale-50">
         <div className="relative w-full h-full">
           <Image
@@ -47,7 +46,6 @@ export function SkillCard({ name, image, lou, priority = false, labels }: SkillC
         </div>
       </div>
 
-      {/* 2. STATE HOVER (Nama & LOU) */}
       <div className="absolute inset-0 flex flex-col items-center justify-center p-3 bg-primary/5 transition-all duration-300 opacity-0 scale-125 group-hover:opacity-100 group-hover:scale-100 group-focus:opacity-100 group-focus:scale-100">
         <span className="font-bold text-center text-sm sm:text-base text-foreground mb-2 sm:mb-3 px-1">
           {name}

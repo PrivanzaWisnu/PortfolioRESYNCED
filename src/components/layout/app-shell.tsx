@@ -11,7 +11,6 @@ interface AppShellProps {
 }
 
 export function AppShell({ children }: AppShellProps) {
-	// Mengambil state sidebar dari Zustand untuk mengatur lebar area konten
 	const { isOpen, setIsOpen } = useSidebar();
 
 	return (
@@ -23,10 +22,7 @@ export function AppShell({ children }: AppShellProps) {
 			<div
 				className={cn(
 					"flex flex-1 flex-col transition-all duration-300 ease-in-out",
-					// Jika sidebar buka, dorong konten sejauh 64 (256px), jika tutup dorong sejauh 20 (80px)
-					// (Angka ini bisa disesuaikan dengan lebar default sidebar di template aslimu)
-					isOpen ? "md:ml-64" : "md:ml-20",
-					// Mobile: margin nol karena sidebar jadi overlay/hidden
+					isOpen ? "md:ml-72" : "md:ml-20",
 					"ml-0"
 				)}
 			>

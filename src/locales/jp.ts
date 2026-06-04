@@ -1,5 +1,8 @@
 export const jp = {
+    sidebar: {
+        title: "プリヴァンザのポートフォリオ",
+    },
     hero: {
-        greeting: "こんにちは、Privanza Wisnu Aqilanndra です",
-    }
+        greeting: "こんにちは、プリヴァンザ・ウィスヌ・アキランドラ です",
+    },
 }

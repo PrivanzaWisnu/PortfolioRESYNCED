@@ -5,7 +5,7 @@ import { useSettingsStore } from "@/store/use-settings"
 import { useTheme } from "next-themes"
 import { X, Monitor, Moon, Sun, Check } from "lucide-react"
 import { fonts, DEFAULT_FONT_ID, FONT_SIZES } from "@/config/fonts"
-import { cn } from "@/lib/utils" // Helper untuk gabungin class
+import { cn } from "@/lib/utils"
 import { en } from "@/locales/en"
 import { id } from "@/locales/id"
 
@@ -14,10 +14,8 @@ export function SettingsModal() {
   const { theme, setTheme } = useTheme()
   const [backup, setBackup] = useState<any>(null)
 
-  // 1. Tentukan bahasa yang aktif
   const t = settings.language === 'id' ? id : en
 
-  // Simpan backup saat modal dibuka
   useEffect(() => {
     if (settings.isSettingsOpen) {
       setBackup({
@@ -32,7 +30,6 @@ export function SettingsModal() {
 
   if (!settings.isSettingsOpen) return null
 
-  // Aksi tombol
   const handleCancel = () => {
     if (backup) {
       settings.setFontId(backup.fontId)
@@ -52,7 +49,6 @@ export function SettingsModal() {
     setTheme('system')
   }
 
-  // Helper untuk styling tombol yang terpilih
   const activeClass = "bg-primary text-primary-foreground border-primary font-bold shadow-sm"
   const inactiveClass = "hover:bg-accent border-border"
 
@@ -77,7 +73,7 @@ export function SettingsModal() {
           {/* Content */}
           <div className="p-6 overflow-y-auto flex-1 space-y-8">
             
-            {/* 1. Appearance / Tema */}
+            {/* 1. Appearance / Theme */}
             <section className="space-y-3">
               <label className="text-sm font-bold uppercase tracking-wider text-muted-foreground">{t.settings.appearance}</label>
               <div className="grid grid-cols-3 gap-3">
@@ -182,7 +178,7 @@ export function SettingsModal() {
 
           </div>
 
-          {/* --- FOOTER --- */}
+          {/* Footer */}
           <div className="p-5 border-t border-border bg-muted/10 flex items-center justify-between">
             <button onClick={handleReset} className="text-sm font-bold text-destructive hover:underline">
               {t.settings.resetDefault}

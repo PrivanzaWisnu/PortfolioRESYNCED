@@ -13,27 +13,19 @@ import { SocialButton } from "@/components/ui/social-button"
 
 import { ABOUT } from "@/data/about"
 
-
 export default function HomePage() {
   const { language } = useSettingsStore()
   const t = language === 'en' ? en : id;
 
   return (
     <div className="space-y-16 pb-8 animate-in fade-in duration-500">
-      
-      {/* --- HERO SECTION (Sekarang pakai Grid 2 Kolom) --- */}
       <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center pt-8 md:pt-12">
-        
-        {/* KOLOM KIRI: Teks & Tombol (Mengambil 7 kolom dari 12) */}
         <div className="space-y-6 lg:col-span-7 order-2 lg:order-1">
           <div className="inline-block rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
             👋 Available for work & opportunities
           </div>
           
           <RotatingGreeting />
-          
-          {/* Deskripsi tentang kamu. 
-              Nanti kamu bisa pindahkan teks ini ke id.ts / en.ts biar rapi */}
           <div className="space-y-4 max-w-[600px] text-lg text-muted-foreground leading-relaxed">
             <p>
               {ABOUT.desc}
@@ -49,7 +41,7 @@ export default function HomePage() {
             </p> */}
           </div>
 
-          {/* CTA BUTTONS */}
+          {/* CTA buttons */}
           <div className="flex flex-wrap items-center gap-4 pt-4">
             <Link href="/projects" className="flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-xl font-medium hover:opacity-90 transition-opacity shadow-lg shadow-primary/20">
               {t.hero.viewMyWork} <ArrowRight className="w-4 h-4" />
@@ -75,11 +67,8 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* KOLOM KANAN: Foto Profil (Mengambil 5 kolom dari 12) */}
         <div className="lg:col-span-5 flex justify-center lg:justify-end order-1 lg:order-2">
-          {/* Efek Lingkaran Estetik */}
           <div className="relative w-64 h-64 md:w-80 md:h-80 xl:w-96 xl:h-96 rounded-full border-4 border-muted/50 shadow-2xl overflow-hidden bg-muted">
-            {/* Siapkan fotomu di folder public dengan nama foto-privanza.jpg */}
             <Image 
               src={ABOUT.image}
               alt="Privanza Wisnu" 
@@ -92,7 +81,7 @@ export default function HomePage() {
 
       </section>
 
-      {/* --- QUICK HIGHLIGHTS --- */}
+      {/* --- Quick Highlights --- */}
       <section className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
         <HighlightCard title="Frontend" description="Membangun UI interaktif dengan React, Next.js, dan Tailwind CSS." />
         <HighlightCard title="Web App" description="Fokus pada pengalaman pengguna di berbagai perangkat layar."/>

@@ -14,7 +14,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // suppressHydrationWarning wajib ada supaya next-themes gak error pas ngecek dark/light mode
     <html lang="en" suppressHydrationWarning>
       <body className="antialiased">
         <ThemeProvider 

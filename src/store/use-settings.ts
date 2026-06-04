@@ -1,12 +1,12 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
-// 1. Definisikan tipe-tipe datanya
+// 1. Data Type Definition
 export type FontSize = 'small' | 'default' | 'large' | 'extra-large'
 export type ThemeColorKey = 'primary' | 'secondary' | 'accent' | 'destructive'
 export type Language = 'id' | 'en'
 
-// 2. Buat kerangka brankasnya (Interface)
+// 2. Interface
 export interface SettingsStore {
   fontId: string
   fontSize: FontSize
@@ -15,7 +15,7 @@ export interface SettingsStore {
   language: Language
   isSettingsOpen: boolean
   
-  // Fungsi untuk mengubah data
+  // Data Converter Functions
   setFontId: (id: string) => void
   setFontSize: (size: FontSize) => void
   setReduceMotion: (reduce: boolean) => void
@@ -24,7 +24,7 @@ export interface SettingsStore {
   setSettingsOpen: (isOpen: boolean) => void
 }
 
-// 3. Buat dan export brankasnya
+// 3. Export Store Hook
 export const useSettingsStore = create<SettingsStore>()(
   persist(
     (set) => ({
@@ -36,7 +36,7 @@ export const useSettingsStore = create<SettingsStore>()(
       language: 'en', // English by Default
       isSettingsOpen: false,
       
-      // Aksi untuk mengubah state
+      // State update functions
       setFontId: (fontId) => set({ fontId }),
       setFontSize: (fontSize) => set({ fontSize }),
       setReduceMotion: (reduceMotion) => set({ reduceMotion }),
@@ -44,6 +44,6 @@ export const useSettingsStore = create<SettingsStore>()(
       setLanguage: (language) => set({ language }),
       setSettingsOpen: (isSettingsOpen) => set({ isSettingsOpen }),
     }),
-    { name: 'portfolio-settings' } // Nama tempat nyimpen di Local Storage browser
+    { name: 'portfolio-settings' } // Name for localStorage key
   )
 )

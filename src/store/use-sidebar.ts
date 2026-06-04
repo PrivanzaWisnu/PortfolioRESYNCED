@@ -7,7 +7,7 @@ interface SidebarStore {
 }
 
 export const useSidebar = create<SidebarStore>((set) => ({
-  isOpen: true, // Default kebuka waktu web pertama kali di-load
+  isOpen: true, // Open by default on desktop
   toggle: () => set((state) => ({ isOpen: !state.isOpen })),
   setIsOpen: (isOpen) => set({ isOpen }),
 }))
