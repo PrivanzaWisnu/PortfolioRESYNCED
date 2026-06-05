@@ -4,7 +4,7 @@ import { useSettingsStore } from "@/store/use-settings"
 import { en } from "@/locales/en"
 import { id } from "@/locales/id"
 import { RotatingGreeting } from "@/components/ui/rotating-greeting"
-import { ArrowRight, FileText } from "lucide-react"
+import { ArrowRight, FileText, MessageSquareText } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -52,7 +52,7 @@ export default function HomePage() {
             </Link>
 
             <Link href="/contact" className="flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-xl font-medium hover:opacity-90 transition-opacity shadow-lg shadow-primary/20">
-              {t.hero.contactMe}
+              <MessageSquareText className="w-4 h-4" />{t.hero.contactMe}
             </Link>
             
             {/* Social Icons */}
@@ -83,9 +83,9 @@ export default function HomePage() {
 
       {/* --- Quick Highlights --- */}
       <section className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-        <HighlightCard title="Frontend" description="Membangun UI interaktif dengan React, Next.js, dan Tailwind CSS." />
-        <HighlightCard title="Web App" description="Fokus pada pengalaman pengguna di berbagai perangkat layar."/>
-        <HighlightCard title="Problem Solver" description="Menganalisis sistem dan merancang logika aplikasi yang efisien."/>
+        <HighlightCard title={t.hero.hl1.title} description={t.hero.hl1.desc}/>
+        <HighlightCard title={t.hero.hl2.title} description={t.hero.hl2.desc} />
+        <HighlightCard title={t.hero.hl3.title} description={t.hero.hl3.desc}/>
       </section>
 
     </div>

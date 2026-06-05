@@ -11,6 +11,8 @@ import {
   LANGUAGES 
 } from "@/data/skills"
 
+import { Code2 } from "lucide-react"
+
 export default function SkillsPage() {
   const { language } = useSettingsStore()
   const t = language === 'en' ? en : id
@@ -28,8 +30,8 @@ export default function SkillsPage() {
     <div className="flex flex-col gap-10 p-1">
       {/* Header Section */}
       <div>
-        <h1 className="text-3xl font-bold tracking-tight text-primary">
-          {t.menu.skills}
+        <h1 className="text-3xl font-bold tracking-tight text-primary flex items-center gap-3">
+          <Code2 className="w-8 h-8" />{t.menu.skills}
         </h1>
       </div>
 

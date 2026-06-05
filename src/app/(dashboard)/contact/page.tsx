@@ -4,7 +4,7 @@ import { useState } from "react"
 import { useSettingsStore } from "@/store/use-settings"
 import { en } from "@/locales/en"
 import { id } from "@/locales/id"
-import { Mail, Send, Loader2 } from "lucide-react"
+import { Mail, Send, Loader2, SendToBack } from "lucide-react"
 
 export default function ContactPage() {
   const { language } = useSettingsStore()
@@ -47,8 +47,8 @@ export default function ContactPage() {
       
       {/* Header */}
       <div className="space-y-2">
-        <h1 className="text-3xl font-bold tracking-tight text-primary">
-          {t.contact?.title || "Contact Me"}
+        <h1 className="text-3xl font-bold tracking-tight text-primary flex items-center gap-3">
+          <SendToBack className="w-8 h-8" />{t.contact?.title || "Contact Me"}
         </h1>
         <p className="text-muted-foreground">
           {t.contact?.description || "Ada project atau penawaran kerja? Hubungi saya kapan saja."}

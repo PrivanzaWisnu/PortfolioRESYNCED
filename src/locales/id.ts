@@ -8,6 +8,18 @@ export const id = {
     viewMyWork: "Lihat Karya Saya",
     viewResume: "Lihat CV",
     contactMe: "Hubungi Saya",
+    hl1: {
+      title: "App Development",
+      desc: "Fokus pada pengembangan aplikasi ujung ke ujung, mengintegrasikan fungsionalitas dengan performa optimal.",
+    },
+    hl2: {
+      title: "Frontend Development",
+      desc: "Mengubah ide menjadi antarmuka pengguna yang adaptif dan mulus di semua perangkat.",
+    },
+    hl3: {
+      title: "Data Analytics",
+      desc: "Mengolah dataset kompleks untuk kebutuhan visualisasi dan insight yang berdampak.",
+    },
   },
   skills: {
     progLang: "Bahasa Pemrograman",

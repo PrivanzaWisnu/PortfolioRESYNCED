@@ -8,6 +8,18 @@ export const en = {
     viewMyWork: "View My Work",
     viewResume: "View CV",
     contactMe: "Contact Me",
+    hl1: {
+      title: "App Development",
+      desc: "Focusing on end-to-end application development, seamlessly blending robust functionality with optimal performance.",
+    },
+    hl2: {
+      title: "Frontend Development",
+      desc: "Transforming creative ideas into adaptive, smooth interfaces across all devices.",
+    },
+    hl3: {
+      title: "Data Analytics",
+      desc: "Processing complex datasets to extract meaningful insights and create impactful data visualizations.",
+    },
   },
   skills: {
     progLang: "Programming Languages",
