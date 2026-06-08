@@ -28,17 +28,8 @@ export default function HomePage() {
           <RotatingGreeting />
           <div className="space-y-4 max-w-[600px] text-lg text-muted-foreground leading-relaxed">
             <p>
-              {ABOUT.desc}
+              {t.hero.about}
             </p>
-            <p>
-              I'm also interested in learning how to make data into useful insights. I love turning ideas into working projects and I'm always curious about how to improve both the logic behind the system and the experience in front of the screen. I would like to learn new things to develop my skills.
-            </p>
-            {/* <p>
-              Halo! Saya seorang mahasiswa BINUS University yang memiliki *passion* besar dalam membangun aplikasi web dan *mobile* yang modern, interaktif, dan efisien. 
-            </p>
-            <p>
-              Saat ini, saya sedang mengembangkan kemampuan profesional saya sebagai App Developer Intern di PT Bintang Toedjoe (Kalbe Customer Health), di mana saya terlibat langsung dalam merancang solusi teknologi yang berdampak nyata.
-            </p> */}
           </div>
 
           {/* CTA buttons */}

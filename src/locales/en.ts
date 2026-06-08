@@ -1,10 +1,13 @@
+import { ABOUT } from "@/data/about"
+
 export const en = {
   sidebar: {
     title: "PRIVANZA'S PORTFOLIO",
   },
   hero: {
-    greeting: "Hi, I'm Privanza Wisnu Aqilanndra",
-    description: "This is my main portfolio page, ready to be customized.",
+    greeting: "Hi, I'm " + ABOUT.name,
+    about: `Hi! I’m a Computer Science student at BINUS University (graduating in 2027), deeply passionate about modern web development. While I hold a solid foundation in full-stack practices and Data Analytics, my main focus lies in crafting highly interactive, adaptive, and performance-driven frontends using Next.js, React, and Tailwind CSS. 
+    I thrive on turning creative ideas into functional projects, always striving to bridge the gap between clean backend logic and seamless frontend experiences.`,
     viewMyWork: "View My Work",
     viewResume: "View CV",
     contactMe: "Contact Me",
@@ -36,6 +39,12 @@ export const en = {
   },
   projects: {
     description: "Here's my latest projects that I've worked on",
+    searchPlaceholder: "Search projects or tags...",
+    showing: "Showing",
+    projectsFor: "project(s) for",
+    noPrjF: "No projects found",
+    tryClear: "Try adjusting your keywords or clear the search filter.",
+    clearSearch: "Clear Search",
     projectStatus: {
       completed: "Completed",
       inProgress: "In Progress",

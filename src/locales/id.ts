@@ -1,10 +1,13 @@
+import { ABOUT } from "@/data/about";
+
 export const id = {
   sidebar: {
     title: "PORTOFOLIO PRIVANZA",
   },
   hero: {
-    greeting: "Hai, saya Privanza Wisnu Aqilanndra",
-    description: "Ini adalah halaman utama portofolio kamu yang siap di-kustomisasi.",
+    greeting: "Hai, saya " + ABOUT.name,
+    about: `Halo! Saya mahasiswa Ilmu Komputer di Universitas BINUS (lulus tahun 2027) yang memiliki ketertarikan mendalam pada pengembangan web modern. Meskipun saya memiliki fondasi yang kuat dalam praktik full-stack dan Analisis Data, fokus utama saya terletak pada perancangan antarmuka (frontend) yang interaktif, adaptif, dan berkinerja tinggi menggunakan Next.js, React, dan Tailwind CSS. 
+    Saya sangat bersemangat dalam mengubah ide kreatif menjadi proyek nyata yang fungsional, serta selalu berusaha menjembatani celah antara logika backend yang bersih dan pengalaman frontend yang mulus.`,
     viewMyWork: "Lihat Karya Saya",
     viewResume: "Lihat CV",
     contactMe: "Hubungi Saya",
@@ -36,6 +39,12 @@ export const id = {
   },
   projects: {
     description: "Ini adalah proyek-proyek terbaru yang telah saya kerjakan.",
+    searchPlaceholder: "Cari projek atau teknologi...",
+    showing: "Menampilkan",
+    projectsFor: "proyek untuk",
+    noPrjF: "Projek tidak ditemukan",
+    tryClear: "Coba ubah kata kunci pencarian atau hapus filter.",
+    clearSearch: "Bersihkan Pencarian",
     projectStatus: {
       completed: "Selesai",
       inProgress: "Sedang Berjalan",

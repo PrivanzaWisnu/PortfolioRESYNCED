@@ -4,6 +4,7 @@ import { Download } from "lucide-react";
 import { useSettingsStore } from "@/store/use-settings"
 import { en } from "@/locales/en"
 import { id } from "@/locales/id"
+import { FileText } from "lucide-react"
 
 export default function ResumePage() {
   const { language } = useSettingsStore()
@@ -16,9 +17,12 @@ export default function ResumePage() {
       {/* Header Section */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight text-primary">Resume / CV</h1>
+          <h1 className="text-3xl font-bold tracking-tight text-primary flex items-center gap-3">
+            <FileText className="w-8 h-8" />
+            Resume / CV
+          </h1>
           <p className="text-muted-foreground mt-2">
-            {t.resume?.description || "My professional resume and detailed career journey."}
+            {t.resume.description}
           </p>
         </div>
         
@@ -29,7 +33,7 @@ export default function ResumePage() {
           className="flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-xl font-medium hover:opacity-90 transition-all duration-200 shadow-lg shadow-primary/20 self-start sm:self-auto focus:outline-none focus:ring-2 focus:ring-primary/50"
         >
           <Download className="w-4 h-4" /> 
-          <span>{t.resume?.download || "Download CV"}</span>
+          <span>{t.resume.download}</span>
         </a>
       </div>
 

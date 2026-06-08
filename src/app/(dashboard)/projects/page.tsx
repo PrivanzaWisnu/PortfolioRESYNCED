@@ -32,10 +32,10 @@ export default function ProjectsPage() {
         <div>
           <h1 className="text-3xl font-bold tracking-tight text-primary flex items-center gap-3">
             <FolderGit2 className="w-8 h-8" />
-            {t.menu.projects || "Projects"}
+            {t.menu.projects}
           </h1>
           <p className="mt-2 text-muted-foreground max-w-2xl">
-            {t.projects?.description || "Showcase of my development journey, from full-stack applications to data analytics."}
+            {t.projects?.description}
           </p>
         </div>
 
@@ -44,7 +44,7 @@ export default function ProjectsPage() {
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
           <input
             type="text"
-            placeholder={language === "en" ? "Search projects or tags..." : "Cari projek atau teknologi..."}
+            placeholder={t.projects.searchPlaceholder}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full pl-9 pr-9 py-2 rounded-xl border border-border bg-card text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
@@ -62,7 +62,7 @@ export default function ProjectsPage() {
 
       {searchQuery && (
         <div className="text-sm text-muted-foreground -mt-4">
-          {language === "en" ? "Showing" : "Menampilkan"} <span className="font-semibold text-foreground">{filteredProjects.length}</span> {language === "en" ? "projects for" : "projek untuk"} "<span className="text-primary font-medium">{searchQuery}</span>"
+          {t.projects.showing} <span className="font-semibold text-foreground">{filteredProjects.length}</span> {t.projects.projectsFor} "<span className="text-primary font-medium">{searchQuery}</span>"
         </div>
       )}
 
@@ -70,9 +70,9 @@ export default function ProjectsPage() {
       {filteredProjects.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {filteredProjects.map((project) => {
-            const statusText = project.status === "in-progress"
-              ? (t.projects?.projectStatus?.inProgress || "In Progress")
-              : (t.projects?.projectStatus?.completed || "Completed");
+            const statusText = project.status === "completed"
+              ? (t.projects.projectStatus.completed)
+              : (t.projects.projectStatus.inProgress)
 
             return (
               <ProjectCard
@@ -93,18 +93,16 @@ export default function ProjectsPage() {
       ) : (
         <div className="flex flex-col items-center justify-center py-12 text-center rounded-2xl border border-dashed border-border bg-muted/20">
           <p className="text-base font-medium text-foreground">
-            {language === "en" ? "No projects found" : "Projek tidak ditemukan"}
+            {t.projects.noPrjF}
           </p>
           <p className="text-sm text-muted-foreground mt-1 max-w-xs">
-            {language === "en" 
-              ? "Try adjusting your keywords or clear the search filter." 
-              : "Coba ubah kata kunci pencarian atau hapus filter."}
+            {t.projects.tryClear}
           </p>
           <button
             onClick={() => setSearchQuery("")}
             className="mt-4 text-xs font-semibold px-3 py-1.5 bg-primary text-primary-foreground rounded-xl shadow-sm hover:opacity-90 transition-opacity"
           >
-            {language === "en" ? "Clear Search" : "Bersihkan Pencarian"}
+            {t.projects.clearSearch}
           </button>
         </div>
       )}

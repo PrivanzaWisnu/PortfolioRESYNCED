@@ -48,10 +48,10 @@ export default function ContactPage() {
       {/* Header */}
       <div className="space-y-2">
         <h1 className="text-3xl font-bold tracking-tight text-primary flex items-center gap-3">
-          <SendToBack className="w-8 h-8" />{t.contact?.title || "Contact Me"}
+          <SendToBack className="w-8 h-8" />{t.contact.title}
         </h1>
         <p className="text-muted-foreground">
-          {t.contact?.description || "Ada project atau penawaran kerja? Hubungi saya kapan saja."}
+          {t.contact.description}
         </p>
       </div>
 
@@ -108,7 +108,7 @@ export default function ContactPage() {
         >
           <div className="space-y-2">
             <label className="text-sm font-medium text-foreground">
-              {t.contact?.nameLabel || "Nama Lengkap"}
+              {t.contact.nameLabel}
             </label>
             <input 
               type="text" 
@@ -121,7 +121,7 @@ export default function ContactPage() {
           </div>
           <div className="space-y-2">
             <label className="text-sm font-medium text-foreground">
-              {t.contact?.emailLabel || "Email Anda"}
+              {t.contact.emailLabel}
             </label>
             <input 
               type="email" 
@@ -135,7 +135,7 @@ export default function ContactPage() {
 
           <div className="space-y-2">
             <label className="text-sm font-medium text-foreground">
-              {t.contact?.messageLabel || "Pesan"}
+              {t.contact.messageLabel}
             </label>
             <textarea 
               rows={5}
@@ -155,19 +155,19 @@ export default function ContactPage() {
             {isSubmitting ? (
               <>
                 <Loader2 className="w-4 h-4 animate-spin" />
-                {t.contact?.sending || "Mengirim..."}
+                {t.contact.sending}
               </>
             ) : (
               <>
                 <Send className="w-4 h-4" />
-                {t.contact?.sendButton || "Kirim Pesan"}
+                {t.contact.sendButton}
               </>
             )}
           </button>
 
           {isSuccess && (
             <div className="p-3 text-sm rounded-xl bg-green-500/10 text-green-500 border border-green-500/20 text-center animate-in fade-in duration-300">
-              🎉 {t.contact?.successMessage || "Pesan berhasil dikirim! Terima kasih."}
+              🎉 {t.contact.successMessage}
             </div>
           )}
         </form>
