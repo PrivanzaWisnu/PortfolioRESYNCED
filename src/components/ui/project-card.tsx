@@ -26,7 +26,7 @@ export function ProjectCard({
   onTagClick
 }: ProjectCardProps) {
   return (
-    <div className="group relative flex flex-col justify-between rounded-2xl border border-border bg-card p-6 shadow-sm hover:shadow-md hover:border-primary/50 transition-all duration-300">
+    <div className="relative flex flex-col justify-between rounded-2xl border border-border bg-card p-6 shadow-sm hover:shadow-md hover:border-primary/50 transition-all duration-300">
       <div>
         <div className="flex items-center justify-between mb-4">
           <div className="p-2.5 rounded-xl bg-muted group-hover:bg-primary/10 group-hover:text-primary transition-colors duration-300">
@@ -56,7 +56,7 @@ export function ProjectCard({
             href={githubLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 flex items-center justify-center gap-1.5 text-xs font-semibold py-2 px-3 rounded-xl bg-secondary text-secondary-foreground hover:bg-muted border border-border transition-all"
+            className="group/repo flex-1 flex items-center justify-center gap-2 text-xs font-semibold py-2 px-3 rounded-xl bg-secondary text-secondary-foreground hover:bg-muted hover:text-foreground hover:border-muted-foreground/30 border border-border transition-all active:scale-[0.98]"
             title="View Source Code on GitHub"
           >
             <span>View Repository</span>
@@ -67,7 +67,7 @@ export function ProjectCard({
               href={demoLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 flex items-center justify-center gap-1.5 text-xs font-semibold py-2 px-3 rounded-xl bg-primary text-primary-foreground hover:opacity-90 transition-opacity shadow-sm"
+              className="group flex-1 flex items-center justify-center gap-1.5 text-xs font-semibold py-2 px-3 rounded-xl bg-primary text-primary-foreground hover:opacity-90 transition-opacity shadow-sm"
               title="View Live Website"
             >
               <span>Live Demo</span>
