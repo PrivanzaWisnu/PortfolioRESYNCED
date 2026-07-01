@@ -8,7 +8,7 @@ import { FileText } from "lucide-react"
 
 export default function ResumePage() {
   const { language } = useSettingsStore()
-  const t = language === 'en' ? en : id;
+  const isEn = language === 'en' ? en : id;
 
   const cvPath = "/documents/PrivanzaWisnuAqilanndra_CV .pdf";
 
@@ -22,7 +22,7 @@ export default function ResumePage() {
             Resume / CV
           </h1>
           <p className="text-muted-foreground mt-2">
-            {t.resume.description}
+            {isEn.resume.description}
           </p>
         </div>
         
@@ -33,7 +33,7 @@ export default function ResumePage() {
           className="flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-xl font-medium hover:opacity-90 transition-all duration-200 shadow-lg shadow-primary/20 self-start sm:self-auto focus:outline-none focus:ring-2 focus:ring-primary/50"
         >
           <Download className="w-4 h-4" /> 
-          <span>{t.resume.download}</span>
+          <span>{isEn.resume.download}</span>
         </a>
       </div>
 

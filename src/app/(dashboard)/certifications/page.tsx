@@ -6,13 +6,20 @@ import { en } from "@/locales/en"
 import { id } from "@/locales/id"
 import { CERTIFICATIONS_DATA, CertificationItem } from "@/data/certifications"
 import { CertificationCard } from "@/components/ui/certification-card"
-import { FolderCheck, X, Download, ExternalLink } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { 
+  Dialog, 
+  DialogContent, 
+  DialogHeader, 
+  DialogTitle, 
+  DialogDescription 
+} from "@/components/ui/dialog"
+import { FolderCheck, Download } from "lucide-react"
 import Image from "next/image"
 
 export default function CertificationsPage() {
   const { language } = useSettingsStore()
-  
-  const t = language === 'en' ?  en : id;
+  const isEn = language === 'en' ? en : id;
 
   const [activePreview, setActivePreview] = useState<CertificationItem | null>(null)
 
@@ -22,10 +29,10 @@ export default function CertificationsPage() {
       <div>
         <h1 className="text-3xl font-bold tracking-tight text-primary flex items-center gap-3">
           <FolderCheck className="w-8 h-8" />
-          {t.menu.certifications}
+          {isEn.menu.certifications}
         </h1>
         <p className="mt-2 text-muted-foreground max-w-2xl">
-          {t.certifications.description}
+          {isEn.certifications.description}
         </p>
       </div>
       
@@ -43,30 +50,21 @@ export default function CertificationsPage() {
         ))}
       </div>
 
-      {/* Overlay */}
-      {activePreview && (
-        <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm transition-all duration-300 ease-in-out animate-in fade-in"
-          onClick={() => setActivePreview(null)}
-        >
-          <div 
-            className="relative flex flex-col w-full max-w-3xl max-h-[85vh] rounded-2xl bg-card border border-border shadow-2xl overflow-hidden transition-all duration-300 ease-out animate-in fade-in zoom-in-95"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Modal Header */}
-            <div className="flex items-center justify-between border-b border-border p-4 bg-muted/40">
-              <div>
-                <h2 className="text-sm md:text-base font-bold text-foreground line-clamp-1">{activePreview.name}</h2>
-                <p className="text-[11px] text-muted-foreground">{t.certifications.credView}</p>
-              </div>
-              <button
-                onClick={() => setActivePreview(null)}
-                className="p-1.5 rounded-xl hover:bg-muted text-muted-foreground hover:text-foreground transition-all duration-200"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
+      <Dialog open={!!activePreview} onOpenChange={(open) => !open && setActivePreview(null)}>
+        <DialogContent className="sm:max-w-3xl max-h-[85vh] p-0 overflow-hidden flex flex-col gap-0 rounded-2xl">
+          
+          {/* Modal Header */}
+          <DialogHeader className="p-4 border-b border-border bg-muted/40 space-y-0.5 text-left">
+            <DialogTitle className="text-sm md:text-base font-bold text-foreground line-clamp-1 pr-6">
+              {activePreview?.name}
+            </DialogTitle>
+            <DialogDescription className="text-[11px] text-muted-foreground">
+              {isEn.certifications.credView}
+            </DialogDescription>
+          </DialogHeader>
 
+          {/* Modal Body / Image Preview */}
+          {activePreview && (
             <div className="flex-1 overflow-auto bg-muted/10 p-4 md:p-6 flex items-center justify-center min-h-[250px]">
               <div className="relative w-full h-[45vh] md:h-[55vh] rounded-xl overflow-hidden bg-card border border-border shadow-inner">
                 <Image
@@ -82,21 +80,25 @@ export default function CertificationsPage() {
                 <div className="absolute inset-0 z-10 w-full h-full bg-transparent" />
               </div>
             </div>
+          )}
 
-            {/* Footer Modal Action */}
-            <div className="flex items-center justify-end gap-3 border-t border-border p-4 bg-muted/40">
-              <a
-                href={activePreview.download}
-                download
-                className="group/down flex items-center justify-center gap-1.5 text-xs font-semibold py-2 px-3 rounded-xl bg-primary text-primary-foreground hover:opacity-90 transition-all shadow-sm active:scale-[0.98]"
-              >
+          {/* Footer Modal Action */}
+          <div className="flex items-center justify-end gap-3 border-isEn border-border p-4 bg-muted/40">
+            <Button
+              variant="default"
+              size="sm"
+              asChild
+              className="group/down gap-1.5 rounded-xl font-semibold shadow-sm active:scale-[0.98] transition-all"
+            >
+              <a href={activePreview?.download} download>
                 <Download className="w-3.5 h-3.5 group-hover/down:translate-y-0.5 transition-transform duration-200" />
-                <span>{t.certifications.download}</span>
+                <span>{isEn.certifications.download}</span>
               </a>
-            </div>
+            </Button>
           </div>
-        </div>
-      )}
+          
+        </DialogContent>
+      </Dialog>
     </div>
   )
 }

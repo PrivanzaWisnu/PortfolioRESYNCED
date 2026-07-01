@@ -31,15 +31,10 @@ export function RotatingTitle() {
   }, [])
 
   return (
-    <div className="min-h-[120px] sm:min-h-[140px] md:min-h-[160px] flex items-center">
-      <h1 
-        className={cn(
-          "font-bold truncate text-sm tracking-wider text-primary transition-opacity duration-1000 ease-in-out",
-          fade ? "opacity-100" : "opacity-0"
-        )}
-      >
-        {titles[currentIndex]}
-      </h1>
-    </div>
+  <div className="min-h-[40px] flex items-center">
+    <h1 className={cn("font-bold truncate text-sm tracking-wider text-primary transition-opacity duration-1000 ease-in-out", fade ? "opacity-100" : "opacity-0")}>
+      {titles[currentIndex]}
+    </h1>
+  </div>
   )
 }

@@ -17,7 +17,7 @@ import { navigationConfig } from "@/config/navigation"
 export function Sidebar() {
   const { isOpen, setIsOpen } = useSidebar()
   const { language } = useSettingsStore()
-  const t = language === 'en' ? en : id;
+  const isEn = language === 'en' ? en : id;
 
   useEffect(() => {
     const tabletQuery = window.matchMedia("(max-width: 1024px)")
@@ -77,7 +77,7 @@ export function Sidebar() {
               className="flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-colors"
             >
               <IconComponent className="w-5 h-5 min-w-[20px]" />
-              {isOpen && <span>{t.menu[item.langKey as keyof typeof t.menu]}</span>}
+              {isOpen && <span>{isEn.menu[item.langKey as keyof typeof isEn.menu]}</span>}
             </Link>
           )
         })}

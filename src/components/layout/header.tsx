@@ -11,7 +11,7 @@ export function Header() {
   const { toggle } = useSidebar()
   
   const { language, setLanguage, setSettingsOpen} = useSettingsStore()
-  const t = language === 'en' ? en : id;
+  const isEn = language === 'en' ? en : id;
 
   const toggleLanguage = () => {
     setLanguage(language === 'en' ? 'id' : 'en')
@@ -33,19 +33,19 @@ export function Header() {
         <button 
           onClick={toggleLanguage}
           className="flex h-9 items-center justify-center gap-2 rounded-md border border-border bg-transparent px-3 text-sm font-bold hover:bg-accent hover:text-accent-foreground transition-colors"
-          title={t.header.languageSwitchTitle}
+          title={isEn.header.languageSwitchTitle}
         >
-          {t.header.language}
+          {isEn.header.language}
         </button>
 
         {/* Settings Button */}
         <button 
           onClick={() => setSettingsOpen(true)} 
           className="flex h-9 items-center justify-center gap-2 rounded-md border border-border bg-transparent px-3 text-sm font-medium hover:bg-accent transition-colors"
-          title={t.header.openSettings}
+          title={isEn.header.openSettings}
         >
           <Settings className="w-4 h-4" /> 
-          <span className="hidden sm:inline">{t.header.settingsLabel}</span>
+          <span className="hidden sm:inline">{isEn.header.settingsLabel}</span>
         </button>
         
       </div>

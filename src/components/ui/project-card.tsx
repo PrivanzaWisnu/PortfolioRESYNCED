@@ -1,6 +1,9 @@
 "use client"
 
 import { Code2, ExternalLink } from "lucide-react"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card" 
+import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
 
 interface ProjectCardProps {
   title: string;
@@ -26,75 +29,71 @@ export function ProjectCard({
   onTagClick
 }: ProjectCardProps) {
   return (
-    <div className="relative flex flex-col justify-between rounded-2xl border border-border bg-card p-6 shadow-sm hover:shadow-md hover:border-primary/50 transition-all duration-300">
+    <Card className="relative flex flex-col justify-between border-border bg-card shadow-sm hover:shadow-md hover:border-primary/50 transition-all duration-300 group">
       <div>
-        <div className="flex items-center justify-between mb-4">
-          <div className="p-2.5 rounded-xl bg-muted group-hover:bg-primary/10 group-hover:text-primary transition-colors duration-300">
-            <Code2 className="w-5 h-5" />
+        <CardHeader className="p-6 pb-0 space-y-4">
+          <div className="flex items-center justify-between">
+            <div className="p-2.5 rounded-xl bg-muted group-hover:bg-primary/10 group-hover:text-primary transition-colors duration-300">
+              <Code2 className="w-5 h-5" />
+            </div>
+            
+            <span className={`text-[11px] font-medium px-2.5 py-0.5 rounded-full border ${
+              status === "in-progress" 
+                ? "bg-amber-500/10 text-amber-500 border-amber-500/20" 
+                : "bg-emerald-500/10 text-emerald-500 border-emerald-500/20"
+            }`}>
+              {statusText}
+            </span>
           </div>
-          
-          <span className={`text-[11px] font-medium px-2.5 py-0.5 rounded-full border ${
-            status === "in-progress" 
-              ? "bg-amber-500/10 text-amber-500 border-amber-500/20" 
-              : "bg-emerald-500/10 text-emerald-500 border-emerald-500/20"
-          }`}>
-            {statusText}
-          </span>
-        </div>
 
-        <h3 className="text-xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors duration-300">
-          {title}
-        </h3>
-        <p className="mt-2 text-sm text-muted-foreground line-clamp-3 leading-relaxed">
-          {desc}
-        </p>
+          <CardTitle className="text-xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors duration-300">
+            {title}
+          </CardTitle>
+          
+          <p className="text-sm text-muted-foreground line-clamp-3 leading-relaxed">
+            {desc}
+          </p>
+        </CardHeader>
       </div>
 
-      <div>
+      <CardContent className="p-6 pt-0">
+        {/* Action Buttons */}
         <div className="mt-5 flex items-center gap-4">
-          <a
-            href={githubLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group/repo flex-1 flex items-center justify-center gap-2 text-xs font-semibold py-2 px-3 rounded-xl bg-secondary text-secondary-foreground hover:bg-muted hover:text-foreground hover:border-muted-foreground/30 border border-border transition-all active:scale-[0.98]"
-            title="View Source Code on GitHub"
-          >
-            <span>View Repository</span>
-          </a>
+          <Button variant="outline" size="sm" className="flex-1 rounded-xl font-semibold" asChild>
+            <a href={githubLink} target="_blank" rel="noopener noreferrer" title="View Source Code on GitHub">
+              <span>View Repository</span>
+            </a>
+          </Button>
 
           {demoLink && (
-            <a
-              href={demoLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex-1 flex items-center justify-center gap-1.5 text-xs font-semibold py-2 px-3 rounded-xl bg-primary text-primary-foreground hover:opacity-90 transition-opacity shadow-sm"
-              title="View Live Website"
-            >
-              <span>Live Demo</span>
-              <ExternalLink className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
-            </a>
+            <Button size="sm" className="flex-1 rounded-xl font-semibold shadow-sm" asChild>
+              <a href={demoLink} target="_blank" rel="noopener noreferrer" title="View Live Website">
+                <span>Live Demo</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            </Button>
           )}
         </div>
 
+        {/* Interactive Tags */}
         <div className="mt-10 flex flex-wrap gap-1.5">
           {tags.map((tag) => {
             const isSelected = searchQuery.toLowerCase() === tag.toLowerCase();
             return (
-              <button
-                key={tag}
-                onClick={() => onTagClick(tag)}
-                className={`text-[11px] font-medium px-2.5 py-1 rounded-lg border transition-all duration-200 ${
-                  isSelected
-                    ? "bg-primary text-primary-foreground border-primary shadow-sm shadow-primary/20 scale-95"
-                    : "bg-secondary text-secondary-foreground border-border hover:bg-muted hover:border-primary/30"
-                }`}
-              >
-                {tag}
+              <button key={tag} onClick={() => onTagClick(tag)} className="focus:outline-none">
+                <Badge 
+                  variant={isSelected ? "default" : "secondary"}
+                  className={`text-[11px] px-2.5 py-1 rounded-lg border transition-all duration-200 cursor-pointer ${
+                    isSelected ? "scale-95 shadow-sm shadow-primary/20" : "border-border hover:border-primary/30"
+                  }`}
+                >
+                  {tag}
+                </Badge>
               </button>
             )
           })}
         </div>
-      </div>
-    </div>
+      </CardContent>
+    </Card>
   )
 }

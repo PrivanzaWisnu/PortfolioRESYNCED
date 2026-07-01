@@ -79,6 +79,7 @@ export const en = {
     projects: "Projects",
     certifications: "Certifications",
     contact: "Contact Me",
+    beyondTheCodes: "Beyond the Codes",
   },
   settings: {
     preferences: "Preferences",

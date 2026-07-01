@@ -79,6 +79,7 @@ export const id = {
     projects: "Proyek Saya",
     certifications: "Sertifikasi",
     contact: "Hubungi Saya",
+    beyondTheCodes: "Beyond the Codes",
   },
   settings: {
     preferences: "Pengaturan",

@@ -10,12 +10,13 @@ import Image from "next/image"
 
 import { HighlightCard } from "@/components/ui/highlight-card"
 import { SocialButton } from "@/components/ui/social-button"
+import { Button } from "@/components/ui/button"
 
 import { ABOUT } from "@/data/about"
 
 export default function HomePage() {
   const { language } = useSettingsStore()
-  const t = language === 'en' ? en : id;
+  const isEn = language === 'en' ? en : id;
 
   return (
     <div className="space-y-16 pb-8 animate-in fade-in duration-500">
@@ -27,24 +28,28 @@ export default function HomePage() {
           
           <RotatingGreeting />
           <div className="space-y-4 max-w-[600px] text-lg text-muted-foreground leading-relaxed">
-            <p>
-              {t.hero.about}
-            </p>
+            <p>{isEn.hero.about}</p>
           </div>
 
           {/* CTA buttons */}
           <div className="flex flex-wrap items-center gap-4 pt-4">
-            <Link href="/projects" className="flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-xl font-medium hover:opacity-90 transition-opacity shadow-lg shadow-primary/20">
-              {t.hero.viewMyWork} <ArrowRight className="w-4 h-4" />
-            </Link>
+            <Button size="lg" className="rounded-xl font-medium shadow-lg shadow-primary/20" asChild>
+              <Link href="/projects">
+                {isEn.hero.viewMyWork} <ArrowRight className="w-4 h-4" />
+              </Link>
+            </Button>
             
-            <Link href="/resume" className="flex items-center gap-2 px-6 py-3 rounded-xl font-medium border border-border hover:bg-accent transition-colors cursor-pointer">
-              <FileText className="w-4 h-4" /> {t.hero.viewResume}
-            </Link>
+            <Button variant="outline" size="lg" className="rounded-xl font-medium" asChild>
+              <Link href="/resume">
+                <FileText className="w-4 h-4" /> {isEn.hero.viewResume}
+              </Link>
+            </Button>
 
-            <Link href="/contact" className="flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-xl font-medium hover:opacity-90 transition-opacity shadow-lg shadow-primary/20">
-              <MessageSquareText className="w-4 h-4" />{t.hero.contactMe}
-            </Link>
+            <Button size="lg" className="rounded-xl font-medium shadow-lg shadow-primary/20" asChild>
+              <Link href="/contact">
+                <MessageSquareText className="w-4 h-4" />{isEn.hero.contactMe}
+              </Link>
+            </Button>
             
             {/* Social Icons */}
             <div className="flex items-center gap-2 w-full sm:w-auto mt-2 sm:mt-0">
@@ -69,16 +74,14 @@ export default function HomePage() {
             />
           </div>
         </div>
-
       </section>
 
       {/* --- Quick Highlights --- */}
       <section className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-        <HighlightCard title={t.hero.hl1.title} description={t.hero.hl1.desc}/>
-        <HighlightCard title={t.hero.hl2.title} description={t.hero.hl2.desc} />
-        <HighlightCard title={t.hero.hl3.title} description={t.hero.hl3.desc}/>
+        <HighlightCard title={isEn.hero.hl1.title} description={isEn.hero.hl1.desc}/>
+        <HighlightCard title={isEn.hero.hl2.title} description={isEn.hero.hl2.desc} />
+        <HighlightCard title={isEn.hero.hl3.title} description={isEn.hero.hl3.desc}/>
       </section>
-
     </div>
   )
 }

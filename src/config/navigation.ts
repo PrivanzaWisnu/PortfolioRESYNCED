@@ -1,4 +1,4 @@
-import { Home, Code, Briefcase, Award, Mail } from "lucide-react"
+import { Home, Code, Briefcase, Award, Mail, Sparkles } from "lucide-react"
 
 export const navigationConfig = [
   {
@@ -26,4 +26,9 @@ export const navigationConfig = [
     href: "/contact",
     icon: Mail,
   },
+  {
+    langKey: "beyondTheCodes",
+    href: "/beyond-the-codes",
+    icon: Sparkles,
+  }
 ];
