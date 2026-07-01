@@ -19,14 +19,14 @@ export function CertificationCard({ name, image, desc, download, onOpenPreview }
 
 
   return (
-    <div className="group relative flex flex-col justify-between rounded-2xl border border-border bg-card p-5 shadow-sm hover:shadow-md hover:border-primary/40 transition-all duration-300">
+    <div className="relative flex flex-col justify-between rounded-2xl border border-border bg-card p-5 shadow-sm hover:shadow-md hover:border-primary/40 transition-all duration-300">
       <div>
-        <div className="relative w-full h-40 rounded-xl overflow-hidden bg-muted border border-border mb-4 group-hover:opacity-90 transition-opacity">
+        <div className="group/img relative w-full h-40 rounded-xl overflow-hidden bg-muted border border-border mb-4 cursor-pointer">
           <Image
             src={image}
             alt={name}
             fill
-            className="object-cover"
+            className="object-cover transition-transform duration-500 ease-out group-hover/img:scale-105"
             sizes="(max-width: 768px) 100vw, 50vw"
             draggable="false"
           />
@@ -45,9 +45,9 @@ export function CertificationCard({ name, image, desc, download, onOpenPreview }
       <div className="mt-5 grid grid-cols-2 gap-3">
         <button
           onClick={onOpenPreview}
-          className="flex items-center justify-center gap-1.5 text-xs font-semibold py-2 px-3 rounded-xl bg-secondary text-secondary-foreground hover:bg-muted border border-border transition-all"
+          className="group/view flex-1 flex items-center justify-center gap-2 text-xs font-semibold py-2 px-3 rounded-xl bg-secondary text-secondary-foreground hover:bg-muted hover:text-foreground hover:border-muted-foreground/30 border border-border transition-all active:scale-[0.98]"
         >
-          <Eye className="w-3.5 h-3.5" />
+          <Eye className="w-3.5 h-3.5 text-muted-foreground group-hover/view:text-foreground group-hover/view:scale-110 transition-transform duration-200" />
           <span>{t.certifications.view}</span>
         </button>
 
@@ -56,9 +56,9 @@ export function CertificationCard({ name, image, desc, download, onOpenPreview }
           download
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-1.5 text-xs font-semibold py-2 px-3 rounded-xl bg-primary text-primary-foreground hover:opacity-90 transition-opacity shadow-sm"
+          className="group/down flex items-center justify-center gap-1.5 text-xs font-semibold py-2 px-3 rounded-xl bg-primary text-primary-foreground hover:opacity-90 transition-all shadow-sm active:scale-[0.98]"
         >
-          <Download className="w-3.5 h-3.5" />
+          <Download className="w-3.5 h-3.5 group-hover/down:translate-y-0.5 transition-transform duration-200" />
           <span>{t.certifications.download}</span>
         </a>
       </div>

@@ -88,9 +88,9 @@ export default function CertificationsPage() {
               <a
                 href={activePreview.download}
                 download
-                className="flex items-center gap-1.5 text-xs font-semibold py-2 px-4 rounded-xl bg-primary text-primary-foreground hover:opacity-90 transition-all duration-200 shadow-sm"
+                className="group/down flex items-center justify-center gap-1.5 text-xs font-semibold py-2 px-3 rounded-xl bg-primary text-primary-foreground hover:opacity-90 transition-all shadow-sm active:scale-[0.98]"
               >
-                <Download className="w-4 h-4" />
+                <Download className="w-3.5 h-3.5 group-hover/down:translate-y-0.5 transition-transform duration-200" />
                 <span>{t.certifications.download}</span>
               </a>
             </div>

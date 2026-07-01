@@ -14,34 +14,34 @@ export const CERTIFICATIONS_DATA: CertificationItem[] = [
     name: "Bitlearn Bootcamp",
     image: "/images/BitlearnBatch2.png",
     desc: "Bitlearn Bootcamp: Laravel & SQL Class",
-    download: "/documents/BitlearnBatch2.pdf"
+    download: "/documents/BitlearnBatch2_PrivanzaWisnu.pdf"
   },
   {
     id: 2,
     name: "Cetta Japanese",
     image: "/images/Cetta Japanese Elementary Certificate.png",
     desc: "Elementary Level Cetta Japanese Class",
-    download: "/documents/Cetta Japanese Elementary Certificate.pdf"
+    download: "/documents/Cetta Japanese Elementary Certificate_PrivanzaWisnu.pdf"
   },
   {
     id: 3,
     name: "Sakura Fubuki",
     image: "/images/JepangBasic0SakuraFubuki.jpg",
     desc: "Basic 0 Level Sakura Fubuki Japan Course",
-    download: "/documents/JepangBasic0SakuraFubuki.pdf"
+    download: "/documents/JepangBasic0SakuraFubuki_PrivanzaWisnu.pdf"
   },
   {
     id: 4,
     name: "Persatuan Insinyur Indonesia",
     image: "/images/PII.jpg",
     desc: "Seminar About Usage of Machine Learning Algorithm for Network Forensics Investigation",
-    download: "/documents/PII.pdf"
+    download: "/documents/PII_PrivanzaWisnu.pdf"
   },
   {
     id: 5,
     name: "HackerRank",
     image: "/images/sql_basic certificate.jpg",
     desc: "HackerRank SQL Basic Certificate",
-    download: "/documents/sql_basic certificate.pdf"
+    download: "/documents/sql_basic certificate_PrivanzaWisnu.pdf"
   },
 ];
