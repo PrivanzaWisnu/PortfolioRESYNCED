@@ -14,9 +14,21 @@ import { Button } from "@/components/ui/button"
 
 import { ABOUT } from "@/data/about"
 
+import { motion } from "framer-motion"
+
 export default function HomePage() {
   const { language } = useSettingsStore()
   const isEn = language === 'en' ? en : id;
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1, transition: { staggerChildren: 0.08 } }
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 10 }, // y cukup 10 agar tidak terlalu melompat jauh
+    show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 30 } }
+  }
 
   return (
     <div className="space-y-16 pb-8 animate-in fade-in duration-500">

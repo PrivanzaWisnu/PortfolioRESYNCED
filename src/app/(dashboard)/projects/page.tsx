@@ -9,6 +9,7 @@ import { ProjectCard } from "@/components/ui/project-card"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { FolderGit2, Search, X } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
 
 export default function ProjectsPage() {
   const { language } = useSettingsStore()
@@ -27,8 +28,32 @@ export default function ProjectsPage() {
     return matchesTitle || matchesDesc || matchesTags
   })
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { 
+        staggerChildren: 0.05
+      }
+    }
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 15 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring" as const, stiffness: 260, damping: 25 }
+    },
+    exit: {
+      opacity: 0,
+      scale: 0.95,
+      transition: { duration: 0.15 }
+    }
+  }
+
   return (
-    <div className="flex flex-col gap-10 p-1 animate-in fade-in duration-500">
+    <div className="flex flex-col gap-10 p-1">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
           <h1 className="text-3xl font-bold tracking-tight text-primary flex items-center gap-3">
@@ -69,30 +94,48 @@ export default function ProjectsPage() {
 
       {/* Projects Grid Layout */}
       {filteredProjects.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {filteredProjects.map((project) => {
-            const statusText = project.status === "completed"
-              ? (t.projects.projectStatus.completed)
-              : (t.projects.projectStatus.inProgress)
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          animate="show"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+        >
+          {/* 3. Bungkus list dengan AnimatePresence agar kartu yang hilang/muncul saat diketik memiliki transisi fade */}
+          <AnimatePresence mode="popLayout">
+            {filteredProjects.map((project) => {
+              const statusText = project.status === "completed"
+                ? (t.projects.projectStatus.completed)
+                : (t.projects.projectStatus.inProgress)
 
-            return (
-              <ProjectCard
-                key={project.id}
-                title={project.title}
-                desc={project.desc}
-                githubLink={project.link}
-                demoLink={project.demoLink}
-                tags={project.tags}
-                status={project.status}
-                statusText={statusText}
-                searchQuery={searchQuery}
-                onTagClick={(tag) => setSearchQuery(tag)}
-              />
-            )
-          })}
-        </div>
+              return (
+                <motion.div
+                  key={project.id}
+                  variants={itemVariants}
+                  layout
+                  exit="exit"
+                >
+                  <ProjectCard
+                    title={project.title}
+                    desc={project.desc}
+                    githubLink={project.link}
+                    demoLink={project.demoLink}
+                    tags={project.tags}
+                    status={project.status}
+                    statusText={statusText}
+                    searchQuery={searchQuery}
+                    onTagClick={(tag) => setSearchQuery(tag)}
+                  />
+                </motion.div>
+              )
+            })}
+          </AnimatePresence>
+        </motion.div>
       ) : (
-        <div className="flex flex-col items-center justify-center py-12 text-center rounded-2xl border border-dashed border-border bg-muted/20">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="flex flex-col items-center justify-center py-12 text-center rounded-2xl border border-dashed border-border bg-muted/20"
+        >
           <p className="text-base font-medium text-foreground">{t.projects.noPrjF}</p>
           <p className="text-sm text-muted-foreground mt-1 max-w-xs">{t.projects.tryClear}</p>
           <Button
@@ -102,7 +145,7 @@ export default function ProjectsPage() {
           >
             {t.projects.clearSearch}
           </Button>
-        </div>
+        </motion.div>
       )}
     </div>
   )
