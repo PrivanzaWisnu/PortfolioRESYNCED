@@ -67,6 +67,24 @@ export const id = {
     sending: "Mengirim...",
     successMessage: "Pesan berhasil dikirim! Saya akan segera menghubungi Anda.",
   },
+  beyond: {
+    title: "Di Balik Kode",
+    desc: "Sekilas tentang dunia kreatif, hobi, dan passion saya di luar dunia pemrograman.",
+    connectChannels: "Hubungkan via Channel Kontenku",
+    nowEnergizing: "Sedang Diputar",
+    trackName: "Build-up Melodi Gitar",
+    creator: {
+      title: "Content Creator Pemula",
+      desc: "Menjelajahi dunia content creation. Membagikan perjalanan, pengalaman gaming, serta proses kreatif melalui video pendek yang menarik."
+    },
+    craft: {
+      title: "Eksperimen Cosplay & Crafting",
+      desc: "Wadah untuk menyalurkan kreativitas fisik. Saya suka mengulik material seperti EVA foam, teknik pemberian tekstur, dan detail cat untuk mewujudkan proyek hobi personal.",
+      currentProject: "Proyek Personal: Lagi nyoba bikin zirah lengan (gauntlet) merah buat persiapan event.",
+      statsTime: "Waktu: ~24 Jam Pengerjaan",
+      statsScale: "Fokus: Presisi & Detail Skala"
+    },
+  },
   header: {
     settingsLabel: "Pengaturan",
     openSettings: "Buka Pengaturan",
@@ -79,7 +97,7 @@ export const id = {
     projects: "Proyek Saya",
     certifications: "Sertifikasi",
     contact: "Hubungi Saya",
-    beyondTheCodes: "Beyond the Codes",
+    beyondTheCodes: `"Beyond The Codes"`,
   },
   settings: {
     preferences: "Pengaturan",

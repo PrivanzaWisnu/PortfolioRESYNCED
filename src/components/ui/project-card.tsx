@@ -4,6 +4,8 @@ import { Code2, ExternalLink } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card" 
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import { useSettingsStore } from "@/store/use-settings"
+import { cn } from "@/lib/utils"
 
 interface ProjectCardProps {
   title: string;
@@ -28,12 +30,25 @@ export function ProjectCard({
   searchQuery,
   onTagClick
 }: ProjectCardProps) {
+  const { reduceMotion } = useSettingsStore()
+
   return (
-    <Card className="relative flex flex-col justify-between border-border bg-card shadow-sm hover:shadow-md hover:border-primary/50 transition-all duration-300 group">
+    <Card 
+      className={cn(
+        "relative flex flex-col justify-between border-border bg-card shadow-sm transition-all duration-300 group",
+        reduceMotion 
+          ? "hover:bg-accent/20 hover:border-primary/40" 
+          : "hover:shadow-xl hover:-translate-y-1 hover:border-primary/50"
+      )}
+    >
       <div>
         <CardHeader className="p-6 pb-0 space-y-4">
           <div className="flex items-center justify-between">
-            <div className="p-2.5 rounded-xl bg-muted group-hover:bg-primary/10 group-hover:text-primary transition-colors duration-300">
+            <div className={cn(
+              "p-2.5 rounded-xl bg-muted text-muted-foreground transition-all duration-300",
+              "group-hover:bg-primary/10 group-hover:text-primary",
+              !reduceMotion && "group-hover:rotate-6"
+            )}>
               <Code2 className="w-5 h-5" />
             </div>
             
@@ -56,36 +71,40 @@ export function ProjectCard({
         </CardHeader>
       </div>
 
-      <CardContent className="p-6 pt-0">
+      <CardContent className="p-6 pt-0 mt-5">
         {/* Action Buttons */}
-        <div className="mt-5 flex items-center gap-4">
-          <Button variant="outline" size="sm" className="flex-1 rounded-xl font-semibold" asChild>
+        <div className="flex items-center gap-4">
+          <Button variant="outline" size="sm" className="flex-1 rounded-xl font-semibold transition-transform active:scale-[0.98]" asChild>
             <a href={githubLink} target="_blank" rel="noopener noreferrer" title="View Source Code on GitHub">
               <span>View Repository</span>
             </a>
           </Button>
 
           {demoLink && (
-            <Button size="sm" className="flex-1 rounded-xl font-semibold shadow-sm" asChild>
+            <Button size="sm" className="flex-1 rounded-xl font-semibold shadow-sm transition-transform active:scale-[0.98]" asChild>
               <a href={demoLink} target="_blank" rel="noopener noreferrer" title="View Live Website">
                 <span>Live Demo</span>
-                <ExternalLink className="w-3.5 h-3.5" />
+                <ExternalLink className="w-3.5 h-3.5 group-hover/down:translate-y-0.5 transition-transform duration-200" />
               </a>
             </Button>
           )}
         </div>
 
         {/* Interactive Tags */}
-        <div className="mt-10 flex flex-wrap gap-1.5">
+        <div className="mt-8 flex flex-wrap gap-1.5">
           {tags.map((tag) => {
             const isSelected = searchQuery.toLowerCase() === tag.toLowerCase();
             return (
               <button key={tag} onClick={() => onTagClick(tag)} className="focus:outline-none">
                 <Badge 
                   variant={isSelected ? "default" : "secondary"}
-                  className={`text-[11px] px-2.5 py-1 rounded-lg border transition-all duration-200 cursor-pointer ${
-                    isSelected ? "scale-95 shadow-sm shadow-primary/20" : "border-border hover:border-primary/30"
-                  }`}
+                  className={cn(
+                    "text-[11px] px-2.5 py-1 rounded-lg border transition-all duration-200 cursor-pointer",
+                    isSelected 
+                      ? "shadow-sm shadow-primary/20 bg-primary text-primary-foreground" 
+                      : "border-border hover:border-primary/40 hover:bg-accent",
+                    (!reduceMotion && isSelected) && "scale-95"
+                  )}
                 >
                   {tag}
                 </Badge>

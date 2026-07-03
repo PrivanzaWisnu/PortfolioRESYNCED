@@ -67,6 +67,24 @@ export const en = {
     sending: "Sending...",
     successMessage: "Message sent successfully! Thank you for reaching out.",
   },
+  beyond: {
+    title: "Beyond the Codes",
+    desc: "A glimpse into my creative universe, hobbies, and logical passions outside of programming.",
+    connectChannels: "Connect via My Content Channels",
+    nowEnergizing: "Now Energizing",
+    trackName: "Pre-Chorus Guitar Riffs",
+    creator: {
+      title: "Aspiring Content Creator",
+      desc: "Exploring the world of content creation. Sharing my journey, gaming experiences, and creative processes through short-form and engaging videos."
+    },
+    craft: {
+      title: "Cosplay Crafting & Hobbies",
+      desc: "An outlet for my hands-on creativity. I love experimenting with materials like EVA foam, texturing techniques, and details to bring personal gaming projects to life.",
+      currentProject: "Personal Project: Currently experimenting with red gauntlets/arm guards for an upcoming event.",
+      statsTime: "Time Spent: ~40 Hours of Crafting",
+      statsScale: "Focus: Precision & Scaling Details"
+    },
+  },
   header: {
     settingsLabel: "Settings",
     openSettings: "Open Settings",
@@ -79,7 +97,7 @@ export const en = {
     projects: "Projects",
     certifications: "Certifications",
     contact: "Contact Me",
-    beyondTheCodes: "Beyond the Codes",
+    beyondTheCodes: `"Beyond The Codes"`,
   },
   settings: {
     preferences: "Preferences",

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { SettingsProvider } from "@/providers/settings-provider";
+import { MotionReducer } from "@/components/layout/motion-reducer";
+import { MotionConfig } from "framer-motion"
 
 export const metadata: Metadata = {
   title: "Privanza's Portfolio RESYNCED",
@@ -22,7 +24,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange>
           <SettingsProvider>
-            {children}
+            <MotionReducer/>
+            <MotionConfig reducedMotion="user"> 
+              {children}
+            </MotionConfig>
           </SettingsProvider>
         </ThemeProvider>
       </body>

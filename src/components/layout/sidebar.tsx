@@ -20,18 +20,22 @@ export function Sidebar() {
   const isEn = language === 'en' ? en : id;
 
   useEffect(() => {
-    const tabletQuery = window.matchMedia("(max-width: 1024px)")
-    
-    if (tabletQuery.matches) setIsOpen(false)
+  const tabletQuery = window.matchMedia("(max-width: 1024px)")
+  
+  if (tabletQuery.matches) {
+    setIsOpen(false)
+  } else {
+    setIsOpen(true)
+  }
 
-    const handler = (e: MediaQueryListEvent) => {
-      if (e.matches) setIsOpen(false)
-      else setIsOpen(true)
-    }
+  const handler = (e: MediaQueryListEvent) => {
+    if (e.matches) setIsOpen(false)
+    else setIsOpen(true)
+  }
 
-    tabletQuery.addEventListener("change", handler)
-    return () => tabletQuery.removeEventListener("change", handler)
-  }, [setIsOpen])
+  tabletQuery.addEventListener("change", handler)
+  return () => tabletQuery.removeEventListener("change", handler)
+}, [setIsOpen])
 
   const handleLinkClick = () => {
     if (window.innerWidth < 1024) {

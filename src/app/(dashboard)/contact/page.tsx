@@ -115,7 +115,7 @@ export default function ContactPage() {
               required
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-              className="w-full px-4 py-2.5 rounded-xl border border-input bg-background focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 transition-all text-sm resize-none outline-none"
+              className="w-full px-4 py-2.5 rounded-xl border border-input bg-background placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 transition-colors text-sm resize-none outline-none disabled:pointer-events-none disabled:opacity-50"
               placeholder={t.contact.messagePlaceholder}
             />
           </div>
